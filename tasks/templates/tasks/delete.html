@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Task</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f1f1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .box {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        a, input[type="submit"] {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            margin: 10px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        a {
+            background-color: #6c757d;
+            color: white;
+        }
+
+        input[type="submit"] {
+            background-color: #dc3545;
+            color: white;
+        }
+
+        a:hover, input[type="submit"]:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <p>Are you sure you want to delete "<strong>{{ item }}</strong>"?</p>
+
+        <a href="{% url 'list' %}">Cancel</a>
+
+        <form method="POST" action="" style="display: inline;">
+            {% csrf_token %}
+            <input type="submit" name="Confirm" value="Confirm">
+        </form>
+    </div>
+</body>
+</html>
